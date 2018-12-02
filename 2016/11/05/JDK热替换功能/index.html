@@ -79,23 +79,23 @@
 
 
 
-<meta name="description" content="热替换原理现在已经有各种智能的IDE可以为我们生成jar包，war包，ear包，甚至带上了自动替换，部署的功能。但一定会有那么些时候，我们需要修改或是替换jar包，war包，ear包中的某个文件而不是整个重新生成。JDK为我们提供了一些命令让我们可以直接修改jar包，war包，ear包中的某个文件，而不需要重新生成。（jar包，war包，ear包本质上都是zip包或称为压缩包） 热替换适用场景例如">
+<meta name="description" content="热替换原理现在已经有各种智能的IDE可以为我们生成jar包，war包，ear包，甚至带上了自动替换，部署的功能。但一定会有那么些时候，我们需要修改或是替换jar包，war包，ear包中的某个文件而不是整个重新生成。JDK为我们提供了一些命令让我们可以直接修改jar包，war包，ear包中的某个文件，而不需要重新生成。（jar包，war包，ear包本质上都是zip包或称为压缩包）">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JDK热替换功能">
 <meta property="og:url" content="http://yoursite.com/2016/11/05/JDK热替换功能/index.html">
 <meta property="og:site_name" content="breezeQian&#39;s Blog">
-<meta property="og:description" content="热替换原理现在已经有各种智能的IDE可以为我们生成jar包，war包，ear包，甚至带上了自动替换，部署的功能。但一定会有那么些时候，我们需要修改或是替换jar包，war包，ear包中的某个文件而不是整个重新生成。JDK为我们提供了一些命令让我们可以直接修改jar包，war包，ear包中的某个文件，而不需要重新生成。（jar包，war包，ear包本质上都是zip包或称为压缩包） 热替换适用场景例如">
+<meta property="og:description" content="热替换原理现在已经有各种智能的IDE可以为我们生成jar包，war包，ear包，甚至带上了自动替换，部署的功能。但一定会有那么些时候，我们需要修改或是替换jar包，war包，ear包中的某个文件而不是整个重新生成。JDK为我们提供了一些命令让我们可以直接修改jar包，war包，ear包中的某个文件，而不需要重新生成。（jar包，war包，ear包本质上都是zip包或称为压缩包）">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2016/11/05/JDK热替换功能/images/1.png">
 <meta property="og:image" content="http://yoursite.com/2016/11/05/JDK热替换功能/images/2.png">
 <meta property="og:image" content="http://yoursite.com/2016/11/05/JDK热替换功能/images/3.png">
 <meta property="og:image" content="http://yoursite.com/2016/11/05/JDK热替换功能/images/4.png">
 <meta property="og:image" content="http://yoursite.com/2016/11/05/JDK热替换功能/images/5.png">
-<meta property="og:updated_time" content="2018-11-28T05:48:57.227Z">
+<meta property="og:updated_time" content="2018-12-02T14:39:12.470Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDK热替换功能">
-<meta name="twitter:description" content="热替换原理现在已经有各种智能的IDE可以为我们生成jar包，war包，ear包，甚至带上了自动替换，部署的功能。但一定会有那么些时候，我们需要修改或是替换jar包，war包，ear包中的某个文件而不是整个重新生成。JDK为我们提供了一些命令让我们可以直接修改jar包，war包，ear包中的某个文件，而不需要重新生成。（jar包，war包，ear包本质上都是zip包或称为压缩包） 热替换适用场景例如">
+<meta name="twitter:description" content="热替换原理现在已经有各种智能的IDE可以为我们生成jar包，war包，ear包，甚至带上了自动替换，部署的功能。但一定会有那么些时候，我们需要修改或是替换jar包，war包，ear包中的某个文件而不是整个重新生成。JDK为我们提供了一些命令让我们可以直接修改jar包，war包，ear包中的某个文件，而不需要重新生成。（jar包，war包，ear包本质上都是zip包或称为压缩包）">
 <meta name="twitter:image" content="http://yoursite.com/2016/11/05/JDK热替换功能/images/1.png">
 
 
@@ -167,7 +167,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">任何成长,都需要持久而痛苦的自律</p>
       
   </div>
 
@@ -190,8 +190,6 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
             首页
           </a>
         </li>
@@ -199,8 +197,6 @@
         
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
             关于
           </a>
@@ -210,8 +206,6 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
             标签
           </a>
         </li>
@@ -220,8 +214,6 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
-            
             分类
           </a>
         </li>
@@ -229,8 +221,6 @@
         
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -242,8 +232,6 @@
           
             <a href="javascript:;" class="popup-trigger">
           
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             搜索
           </a>
@@ -406,6 +394,7 @@
 
       
         <h3 id="热替换原理"><a href="#热替换原理" class="headerlink" title="热替换原理"></a>热替换原理</h3><p>现在已经有各种智能的IDE可以为我们生成jar包，war包，ear包，甚至带上了自动替换，部署的功能。但一定会有那么些时候，我们需要修改或是替换jar包，war包，ear包中的某个文件而不是整个重新生成。JDK为我们提供了一些命令让我们可以直接修改jar包，war包，ear包中的某个文件，而不需要重新生成。（jar包，war包，ear包本质上都是zip包或称为压缩包）</p>
+<a id="more"></a>
 <h3 id="热替换适用场景"><a href="#热替换适用场景" class="headerlink" title="热替换适用场景"></a>热替换适用场景</h3><p>例如，将war包部署到生产环境的服务器上。此时如果需要更改war包中的配置文件时，只需要用jdk提供的命令进行修改即可，无需再到开发工具中修改后重新打包上传，提高效率。</p>
 <h3 id="热替换工具"><a href="#热替换工具" class="headerlink" title="热替换工具"></a>热替换工具</h3><p>用到的工具是jar command，这是jdk自带的工具。其中，我们用到的命令主要是以下几个：</p>
 <table>
@@ -601,7 +590,7 @@
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="breezeQian">
             
               <p class="site-author-name" itemprop="name">breezeQian</p>
-              <p class="site-description motion-element" itemprop="description">关注源码的java架构进阶小生!</p>
+              <p class="site-description motion-element" itemprop="description">java架构进阶小生!</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -704,7 +693,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a></div>
 
 
 
