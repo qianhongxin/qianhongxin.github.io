@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>breezeQian&#39;s Blog</title>
+  
+  <subtitle>任何成长,都需要持久而痛苦的自律</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2018-11-28T07:29:50.233Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>breezeQian</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MySQL基础架构</title>
+    <link href="http://yoursite.com/2018/11/28/MySQL%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84/"/>
+    <id>http://yoursite.com/2018/11/28/MySQL基础架构/</id>
+    <published>2018-11-28T07:29:50.000Z</published>
+    <updated>2018-11-28T07:29:50.233Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>JDK热替换功能</title>
+    <link href="http://yoursite.com/2016/11/05/JDK%E7%83%AD%E6%9B%BF%E6%8D%A2%E5%8A%9F%E8%83%BD/"/>
+    <id>http://yoursite.com/2016/11/05/JDK热替换功能/</id>
+    <published>2016-11-04T17:11:07.000Z</published>
+    <updated>2018-12-02T17:03:20.984Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="热替换原理"><a href="#热替换原理" class="headerlink" title="热替换原理"></a>热替换原理</h3><p>现在已经有各种智能的IDE可以为我们生成jar包，war包，ear包，甚至带上了自动替换，部署的功能。但一定会有那么些时候，我们需要修改或是替换jar包，war包，ear包中的某个文件而不是整个重新生成。JDK为我们提供了一些命令让我们可以直接修改jar包，war包，ear包中的某个文件，而不需要重新生成。（jar包，war包，ear包本质上都是zip包或称为压缩包）</p><a id="more"></a><h3 id="热替换适用场景"><a href="#热替换适用场景" class="headerlink" title="热替换适用场景"></a>热替换适用场景</h3><p>例如，将war包部署到生产环境的服务器上。此时如果需要更改war包中的配置文件时，只需要用jdk提供的命令进行修改即可，无需再到开发工具中修改后重新打包上传，提高效率。</p><h3 id="热替换工具"><a href="#热替换工具" class="headerlink" title="热替换工具"></a>热替换工具</h3><p>用到的工具是jar command，这是jdk自带的工具。其中，我们用到的命令主要是以下几个：</p><table><thead><tr><th>命令</th><th>解释</th></tr></thead><tbody><tr><td>c</td><td>创建一个新的压缩包</td></tr><tr><td>t</td><td>列出压缩包中的所有内容</td></tr><tr><td>x</td><td>将指定文件或者整个压缩包解压到当前目录</td></tr><tr><td>u</td><td>将当前压缩包更新</td></tr><tr><td>v</td><td>将你触发的所有动作都打印到标准输出f可以指定压缩包的名字</td></tr></tbody></table><p><strong>注意：这里的压缩包可以是jar，war，ear或者其他包。你只需要在调用jar命令的时候，指定你要的后缀名。</strong></p><h3 id="热替换示例"><a href="#热替换示例" class="headerlink" title="热替换示例"></a>热替换示例</h3><p>我这里以war包为例，修改已经压缩好的war包中的一个配置文件。</p><p>示例：在windows上，修改manager.war中的application.properties文件。</p><p>操作步骤：</p><p><strong>1. 利用jar -tvf manager.war列出该war包中的文件</strong></p><p><img src="../images/1.png" alt=""></p><p>由于窗口高度问题，此处只显示了部分文件。从中可以看出，该命令执行后会将war包的所有文件一一显示出来，包括所在路径。</p><p><strong>2. 执行jar -xvf manager.war命令，解压该war包。得到如下结果</strong></p><p><img src="../images/2.png" alt=""></p><p>上图中的红框中的META-INF,org,WEN-INF即为解压后的文件</p><p><strong>3. 修改application.properties文件</strong></p><p><img src="../images/3.png" alt=""></p><p>找到application.properties文件，打开该文件，并将我们想要修改的内容进行修改。然后保存。application.properties文件的所在路径为下图红框中所标注的地方；</p><p><img src="../images/4.png" alt=""></p><p><strong>4.执行jar -uvf manager.war WEN-INF/classes/config/application.properties</strong></p><p>上图中的红框部分即为执行过程</p><p><strong>5.执行完上述执行后，即可得到最新的manager.war，如下图所示</strong></p><p><strong><img src="../images/5.png" alt=""></strong></p><p><strong>6.总结：以上就是修改一个war中的配置文件的过程，主要使用了两个指令</strong></p><p>(1) 利用 jar -xvf manager.war 解压；</p><p>(2) 修改application.properties配置文件，利用jar -uvf manager.war WEN-INF/classes/config/application.properties将修改后的配置文件信息更新到manager.war中。得到的manager.war即是最新的war。</p><p>参考链接：<a href="http://blog.csdn.net/u013613428/article/details/51669882" target="_blank" rel="noopener">http://blog.csdn.net/u013613428/article/details/51669882</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;热替换原理&quot;&gt;&lt;a href=&quot;#热替换原理&quot; class=&quot;headerlink&quot; title=&quot;热替换原理&quot;&gt;&lt;/a&gt;热替换原理&lt;/h3&gt;&lt;p&gt;现在已经有各种智能的IDE可以为我们生成jar包，war包，ear包，甚至带上了自动替换，部署的功能。但一定会有那么些时候，我们需要修改或是替换jar包，war包，ear包中的某个文件而不是整个重新生成。JDK为我们提供了一些命令让我们可以直接修改jar包，war包，ear包中的某个文件，而不需要重新生成。（jar包，war包，ear包本质上都是zip包或称为压缩包）&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="部署" scheme="http://yoursite.com/categories/%E9%83%A8%E7%BD%B2/"/>
+    
+    
+      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+    
+  </entry>
+  
+</feed>
